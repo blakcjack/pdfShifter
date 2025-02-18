@@ -1,0 +1,35 @@
+---
+title: From Toe to Tomorrow
+author:
+  - name: Suberlin Sinaga
+    orcid: 0009-0004-6330-0032
+    email: suberlinsinaga@gmail.com
+    affiliations:
+      - name: python and r programming
+        address: I live here and there
+        city: Where you can see so many stars
+        state: IND
+        postal-code: 98109-4631
+format: pdfShifter-typst
+mainfont: Times New Roman
+columns: 1
+papersize: a5
+toc: true
+company_logo:
+    path: "logo.png"
+toc_indent: 45em
+---
+
+`#colbreak()`{=typst}
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+`#colbreak()`{=typst}
+
+## Quartoi
+
+$$
+\alpha
+$$
