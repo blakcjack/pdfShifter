@@ -16,8 +16,9 @@ columns: 1
 papersize: a5
 toc: true
 company_logo:
-    path: "logo.png"
+    path: logo.png
 toc_indent: 45em
+sidebar_color: "#8787dc"
 ---
 
 `#colbreak()`{=typst}

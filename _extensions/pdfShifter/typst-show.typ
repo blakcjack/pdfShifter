@@ -1,6 +1,6 @@
 #show: pdfShifter.with(
   $if(title)$
-  title: [$title$],
+    title: [$title$],
   $endif$
   $if(subtitle)$
     subtitle: [$subtitle$],
@@ -84,5 +84,8 @@
       path: "$company_logo.path$",
       caption: [$company_logo.caption$]
     ), 
+  $endif$
+  $if(sidebar_color)$
+    sidebar_color: "$sidebar_color$",
   $endif$
 )

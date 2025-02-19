@@ -16,5 +16,3 @@ contributes:
           - definitions.typ
           - typst-template.typ
           - typst-show.typ
-      format-resources:
-        - logo.png
