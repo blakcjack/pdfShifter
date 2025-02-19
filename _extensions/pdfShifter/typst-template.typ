@@ -1,3 +1,19 @@
+#let to-string(content) = {
+  if content.has("text") {
+    if type(content.text) == "string" {
+      content.text
+    } else {
+      to-string(content.text)
+    }
+  } else if content.has("children") {
+    content.children.map(to-string).join("")
+  } else if content.has("body") {
+    to-string(content.body)
+  } else if content == [ ] {
+    " "
+  }
+}
+
 #let pdfShifter(
   title: none,
   subtitle: none,
@@ -31,19 +47,42 @@
   let sidebar_color = if sidebar_color != none {sidebar_color.replace("\#", "")} else {"14142a"}
   set page(
     paper: paper,
-    margin: (left: 3.2cm, right: 1.5cm, top: 2cm, bottom: 2cm),
+    margin: (left: 4cm, right: 1cm, top: 2cm, bottom: 2cm),
     numbering: "1",
     number-align: right,
     background: place(left + top, rect(
       fill: rgb(sidebar_color),
       height: 100%,
-      width: 3cm,
+      width: 3.8cm,
       block(
         spacing: 200pt,
         place(
           top,
-          dy: 50pt,
-          image(company_logo.path, width: 2.5cm)
+          dy: 300pt,
+          // dx: 0.1pt,
+          stack(
+            spacing: 1em,  // Adds space between image and text
+            block(width: 3.4cm)[
+              #image(company_logo.path)
+              #align(center)[
+                #text(fill: white)[
+                  #authors.map(
+                    author => [
+                      #author.name\
+                      #text(size: 0.75em, weight: "bold")[
+                        #author.affiliation\
+                        #link("mailto:" + to-string(author.email), author.email)\
+                        #link("https://orcid.org/" + to-string(author.orcid), author.orcid)\
+                        #link("https://www.linkedin.com/in/" + to-string(author.linkedin), author.linkedin)
+                      ]
+                    ]
+                  ).join("")
+                  // Suberlin Sinaga\
+                  // #text(size: 0.65em)[email: suberlinsinaga\@gmail.com]
+                ]
+              ]
+            ]
+          )
         )
       )
     ))
@@ -99,6 +138,7 @@
   }
 
   if abstract != none {
+    pagebreak()
     block(inset: 2em)[
     #text(weight: "semibold")[#abstract-title] #h(1em) #abstract
     ]
@@ -110,6 +150,7 @@
     } else {
       toc_title
     }
+    pagebreak()
     block(above: 3em, below: 2em)[
     #outline(
       title: toc_title,
