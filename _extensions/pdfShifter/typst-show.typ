@@ -2,6 +2,9 @@
   $if(title)$
     title: [$title$],
   $endif$
+  $if(title-size)$
+    title-size: $title-size$,
+  $endif$
   $if(subtitle)$
     subtitle: [$subtitle$],
   $endif$
