@@ -25,7 +25,8 @@
   toc_depth: none,
   toc_indent: 2.5em,
   doc,
-  company_logo: none,
+  company_logo: "logo.png",
+  sidebar_color: "#14142a"
 ) = {
   set page(
     paper: paper,
@@ -33,7 +34,7 @@
     numbering: "1",
     number-align: right,
     background: place(left + top, rect(
-      fill: rgb("#14142a"),
+      fill: rgb(sidebar_color),
       height: 100%,
       width: 3cm,
       block(

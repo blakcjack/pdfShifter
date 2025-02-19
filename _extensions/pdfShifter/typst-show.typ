@@ -85,4 +85,7 @@
       caption: [$company_logo.caption$]
     ), 
   $endif$
+  $if(sidebar_color)$
+    sidebar_color: $sidebar_color$,
+  $endif$
 )
