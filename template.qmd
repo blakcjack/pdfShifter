@@ -18,7 +18,7 @@ toc: true
 company_logo:
     path: logo.png
 toc_indent: 45em
-sidebar_color: #14142a
+sidebar_color: "#8787dc"
 ---
 
 `#colbreak()`{=typst}

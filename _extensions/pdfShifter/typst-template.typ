@@ -26,8 +26,9 @@
   toc_indent: 2.5em,
   doc,
   company_logo: "logo.png",
-  sidebar_color: "#14142a"
+  sidebar_color: none
 ) = {
+  let sidebar_color = if sidebar_color != none {sidebar_color.replace("\#", "")} else {"14142a"}
   set page(
     paper: paper,
     margin: (left: 3.2cm, right: 1.5cm, top: 2cm, bottom: 2cm),
