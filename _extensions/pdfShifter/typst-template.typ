@@ -47,13 +47,13 @@
   let sidebar_color = if sidebar_color != none {sidebar_color.replace("\#", "")} else {"14142a"}
   set page(
     paper: paper,
-    margin: (left: 3.8cm, right: 1cm, top: 2cm, bottom: 2cm),
+    margin: (left: 4cm, right: 1cm, top: 2cm, bottom: 2cm),
     numbering: "1",
     number-align: right,
     background: place(left + top, rect(
       fill: rgb(sidebar_color),
       height: 100%,
-      width: 3.6cm,
+      width: 3.8cm,
       block(
         spacing: 200pt,
         place(

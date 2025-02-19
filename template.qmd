@@ -1,5 +1,5 @@
 ---
-title: From Toe to [Tomorrow]{style="color:green;"}
+title: From [Toe]{style="color:#8D5524;"} to [Tomorrow]{style="color:#FFBF00;"}
 subtitle: EVA's Journey To be A [Hero]{style="color:red;"}
 author:
   - name: Suberlin Sinaga
@@ -12,7 +12,7 @@ author:
         city: Where you can see so many stars
         state: IND
         postal-code: 98109-4631
-title-size: 3em
+title-size: 3.2em
 format:
   pdfShifter-typst:
     fig-format: svg
