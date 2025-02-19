@@ -51,3 +51,5 @@ author:
 ```
 
 You will have better author display on the sidebar by utilizing that parameters.
+
+You can see the preview of the documents as follow: [Demo Template](https://github.com/blakcjack/pdfShifter/blob/main/template.pdf)
