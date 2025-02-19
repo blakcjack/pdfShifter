@@ -99,6 +99,7 @@
   }
 
   if abstract != none {
+    pagebreak()
     block(inset: 2em)[
     #text(weight: "semibold")[#abstract-title] #h(1em) #abstract
     ]
@@ -110,6 +111,7 @@
     } else {
       toc_title
     }
+    pagebreak()
     block(above: 3em, below: 2em)[
     #outline(
       title: toc_title,
