@@ -64,23 +64,25 @@
             spacing: 1em,  // Adds space between image and text
             block(width: 3.4cm)[
               #image(company_logo.path)
-              #align(center)[
-                #text(fill: white)[
-                  #authors.map(
-                    author => [
-                      #author.name\
-                      #text(size: 0.75em, weight: "bold")[
-                        #author.affiliation\
-                        #link("mailto:" + to-string(author.email), author.email)\
-                        #link("https://orcid.org/" + to-string(author.orcid), author.orcid)\
-                        #link("https://www.linkedin.com/in/" + to-string(author.linkedin), author.linkedin)
-                      ]
+              #if authors != none {
+                  align(center)[
+                    #text(fill: white)[
+                      #authors.map(
+                        author => [
+                          #author.name\
+                          #text(size: 0.75em, weight: "bold")[
+                            #author.affiliation\
+                            #link("mailto:" + to-string(author.email), author.email)\
+                            #link("https://orcid.org/" + to-string(author.orcid), author.orcid)\
+                            #link("https://www.linkedin.com/in/" + to-string(author.linkedin), author.linkedin)
+                          ]
+                        ]
+                      ).join("")
+                      // Suberlin Sinaga\
+                      // #text(size: 0.65em)[email: suberlinsinaga\@gmail.com]
                     ]
-                  ).join("")
-                  // Suberlin Sinaga\
-                  // #text(size: 0.65em)[email: suberlinsinaga\@gmail.com]
-                ]
-              ]
+                  ]
+              }
             ]
           )
         )
