@@ -14,7 +14,9 @@
   $if(it.name.literal)$
       ( name: [$it.name.literal$],
         affiliation: [$for(it.affiliations)$$it.name$$sep$, $endfor$],
-        email: [$it.email$] ),
+        email: [$it.email$],
+        orcid: [$it.orcid$],
+        linkedin: [$it.url$] ),
   $endif$
   $endfor$
       ),

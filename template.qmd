@@ -1,16 +1,21 @@
 ---
-title: From Toe to Tomorrow
+title: From Toe to [Tomorrow]{style="color:green;"}
+subtitle: EVA's Journey To be A [Hero]{style="color:red;"}
 author:
   - name: Suberlin Sinaga
     orcid: 0009-0004-6330-0032
+    url: suberlin-sinaga-07
     email: suberlinsinaga@gmail.com
     affiliations:
-      - name: python and r programming
+      - name: Data Analyst
         address: I live here and there
         city: Where you can see so many stars
         state: IND
         postal-code: 98109-4631
-format: pdfShifter-typst
+title-size: 3em
+format:
+  pdfShifter-typst:
+    fig-format: svg
 mainfont: Times New Roman
 columns: 1
 papersize: a5
@@ -26,8 +31,6 @@ sidebar_color: "#8787dc"
 ## Quarto
 
 Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
-
-`#colbreak()`{=typst}
 
 ## Quartoi
 
