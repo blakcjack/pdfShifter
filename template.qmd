@@ -1,6 +1,6 @@
 ---
 title: Lorem [Ipsum]{style="color:#8D5524;"} Dolor [Sit Amet]{style="color:#FFBF00;"}
-subtitle: Consectetur adipiscing [Elit]{style="color:red;"}
+subtitle: Consectetur Adipiscing [Elit]{style="color:red;"}
 author:
   - name: Suberlin Sinaga
     orcid: 0009-0004-6330-0032
