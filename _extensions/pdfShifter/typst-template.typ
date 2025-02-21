@@ -47,30 +47,35 @@
   let sidebar_color = if sidebar_color != none {sidebar_color.replace("\#", "")} else {"14142a"}
   set page(
     paper: paper,
-    margin: (left: 4cm, right: 1cm, top: 2cm, bottom: 2cm),
+    margin: (left: 2.4cm, right: 0.1cm, top: 2cm, bottom: 2cm),
     numbering: "1",
     number-align: right,
     background: place(left + top, rect(
       fill: rgb(sidebar_color),
       height: 100%,
-      width: 3.8cm,
+      width: 2.2cm,
       block(
-        spacing: 200pt,
+        spacing: 20pt,
         place(
-          top,
-          dy: 300pt,
-          // dx: 0.1pt,
+          left + top,
+          dy: 480pt,
+          dx: -0.08cm,
           stack(
-            spacing: 1em,  // Adds space between image and text
-            block(width: 3.4cm)[
+            // spacing: 1em,  // Adds space between image and text
+            block(width: 2cm, spacing: 0.1em)[
               #image(company_logo.path)
               #if authors != none {
                   align(center)[
                     #text(fill: white)[
                       #authors.map(
                         author => [
+<<<<<<< HEAD
                           #author.name\
                           #text(size: 0.75em, weight: "bold")[
+=======
+                          #text(size: 0.45em, weight: "bold")[
+                            #author.name\
+>>>>>>> f4ebf3d (Improve logo position and font size)
                             #author.affiliation\
                             #link("mailto:" + to-string(author.email), author.email)\
                             #link("https://orcid.org/" + to-string(author.orcid), author.orcid)\
@@ -140,7 +145,7 @@
   }
 
   if abstract != none {
-    pagebreak()
+    pagebreak(weak: true)
     block(inset: 2em)[
     #text(weight: "semibold")[#abstract-title] #h(1em) #abstract
     ]
@@ -152,7 +157,7 @@
     } else {
       toc_title
     }
-    pagebreak()
+    pagebreak(weak: true)
     block(above: 3em, below: 2em)[
     #outline(
       title: toc_title,
