@@ -69,13 +69,8 @@
                     #text(fill: white)[
                       #authors.map(
                         author => [
-<<<<<<< HEAD
-                          #author.name\
-                          #text(size: 0.75em, weight: "bold")[
-=======
                           #text(size: 0.45em, weight: "bold")[
                             #author.name\
->>>>>>> f4ebf3d (Improve logo position and font size)
                             #author.affiliation\
                             #link("mailto:" + to-string(author.email), author.email)\
                             #link("https://orcid.org/" + to-string(author.orcid), author.orcid)\
