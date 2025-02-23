@@ -23,6 +23,7 @@ toc: true
 company_logo:
     path: logo.png
 toc_indent: 45em
+toccolor: "#9f7699"
 sidebar_color: "#999f76"
 ---
 
