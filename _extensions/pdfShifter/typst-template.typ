@@ -40,11 +40,13 @@
   toc_title: none,
   toc_depth: none,
   toc_indent: 2.5em,
+  toc_color: none,
   doc,
   company_logo: "logo.png",
   sidebar_color: none
 ) = {
   let sidebar_color = if sidebar_color != none {sidebar_color.replace("\#", "")} else {"14142a"}
+  let toc_color = if sidebar_color != none {toc_color.replace("\#", "")} else {"black"}
   set page(
     paper: paper,
     margin: (left: 2.4cm, right: 0.1cm, top: 2cm, bottom: 2cm),
@@ -94,7 +96,18 @@
            region: region,
            font: font,
            size: fontsize)
+  show heading: set text(fill: rgb(toc_color))
   set heading(numbering: sectionnumbering)
+  show outline.entry: it => {
+    link(
+      it.element.location(),
+      [
+        #text(fill: rgb(toc_color))[#it.body]
+        #box(width: 1fr, text(fill: rgb(toc_color))[#it.fill])
+        #text(fill: rgb(toc_color))[#it.page]
+      ]
+    )
+  }
   if title != none {
     place(
       left + bottom,

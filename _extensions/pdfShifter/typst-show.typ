@@ -76,6 +76,9 @@
   $if(toc)$
     toc: $toc$,
   $endif$
+  $if(toccolor)$
+    toc_color: "$toccolor$",
+  $endif$
   $if(toc-title)$
     toc_title: [$toc-title$],
   $endif$
