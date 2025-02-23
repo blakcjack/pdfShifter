@@ -40,6 +40,7 @@
   toc_title: none,
   toc_depth: none,
   toc_indent: 2.5em,
+  toc_color: black,
   doc,
   company_logo: "logo.png",
   sidebar_color: none
@@ -94,7 +95,18 @@
            region: region,
            font: font,
            size: fontsize)
+  show heading: set text(fill: toc_color)
   set heading(numbering: sectionnumbering)
+  show outline.entry: it => {
+    link(
+      it.element.location(),
+      [
+        #text(fill: toc_color)[#it.body]
+        #box(width: 1fr, text(fill: toc_color)[#it.fill])
+        #text(fill: toc_color)[#it.page]
+      ]
+    )
+  }
   if title != none {
     place(
       left + bottom,
