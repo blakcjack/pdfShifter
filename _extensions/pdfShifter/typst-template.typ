@@ -18,6 +18,7 @@
   title: none,
   subtitle: none,
   authors: none,
+  companies: none,
   date: none,
   abstract: none,
   abstract-title: none,
@@ -60,26 +61,41 @@
         spacing: 20pt,
         place(
           left + top,
-          dy: 480pt,
+          dy: 440pt,
           dx: -0.08cm,
           stack(
             // spacing: 1em,  // Adds space between image and text
             block(width: 2cm, spacing: 0.1em)[
               #image(company_logo.path)
-              #if authors != none {
+              #if companies != none {
                   align(center)[
-                    #text(fill: white)[
-                      #authors.map(
-                        author => [
-                          #text(size: 0.45em, weight: "bold")[
-                            #author.name\
-                            #author.affiliation\
-                            #link("mailto:" + to-string(author.email), author.email)\
-                            #link("https://orcid.org/" + to-string(author.orcid), author.orcid)\
-                            #link("https://www.linkedin.com/in/" + to-string(author.linkedin), author.linkedin)
-                          ]
-                        ]
-                      ).join("")
+                    #text(fill: black, size: 0.5em, weight: "bold")[
+                      #link(companies.url, companies.name)\
+                      #v(1.5pt)
+                      #text(size: 0.9em)[email: #link("mailto:" + to-string(companies.email), companies.email)]\
+                      #v(1.5pt)
+                      #text(size: 1em)[mobile: #companies.mobile]\
+                      #v(1.5pt)
+                      phone: #companies.phone\
+                      #v(1.5pt)
+                      insta: #link("https://www.instagram.com/" + to-string(companies.instagram), companies.instagram)\
+                      #v(1.5pt)
+                      linkedin: #link("https://www.linkedin.com/in/" + to-string(companies.linkedin), companies.linkedin)\
+                      // #for (key, value) in my_companies {
+                      //   [#key: #value ]
+                      // }
+                      // my_companies
+                      // #url.map(
+                      //   author => [
+                      //     #text(size: 0.45em, weight: "bold")[
+                      //       #author.name\
+                      //       #author.affiliation\
+                      //       #link("mailto:" + to-string(author.email), author.email)\
+                      //       #link("https://orcid.org/" + to-string(author.orcid), author.orcid)\
+                      //       #link("https://www.linkedin.com/in/" + to-string(author.linkedin), author.linkedin)
+                      //     ]
+                      //   ]
+                      // ).join("")
                       // Suberlin Sinaga\
                       // #text(size: 0.65em)[email: suberlinsinaga\@gmail.com]
                     ]

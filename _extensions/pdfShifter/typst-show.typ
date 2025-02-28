@@ -96,4 +96,15 @@
   $if(sidebar_color)$
     sidebar_color: "$sidebar_color$",
   $endif$
+  $if(company)$
+    companies: (
+      name: "$company.name$",
+      email: [$company.email$],
+      url: "$company.url$",
+      instagram: [$company.instagram$],
+      linkedin: [$company.linkedin$],
+      mobile: [$company.mobile$],
+      phone: [$company.phone$]
+    ),
+  $endif$
 )

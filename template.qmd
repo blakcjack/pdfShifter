@@ -12,6 +12,14 @@ author:
         city: Where you can see so many stars
         state: IND
         postal-code: 98109-4631
+company:
+  name: bababos
+  email: sales@bababos.com
+  url: www.bababos.com
+  instagram: bababos_idn
+  mobile: "0851 8667 8078"
+  phone: "(021) 2788 1879"
+  linkedin: bababos
 title-size: 2.5em
 format:
   pdfShifter-typst:
