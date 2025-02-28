@@ -139,17 +139,48 @@
             text(size: subtitle-size)[#subtitle]
           }
           if authors != none {
-            let count = authors.len()
-            let ncols = calc.min(count, 3)
-            grid(
-              columns: (1fr,) * ncols,
-              row-gutter: 1.5em,
-              ..authors.map(author =>
-                  align(center)[
-                    #author.name \
-                    #author.affiliation
-                  ]
-              )
+            // let count = authors.len()
+            // let ncols = calc.min(count, 3)
+            // grid(
+            //   columns: (1fr,) * ncols,
+            //   row-gutter: 1.5em,
+            //   ..authors.map(author =>
+            //       align(center)[
+            //         #author.name \
+            //         #author.affiliation
+            //       ]
+            //   )
+            // )
+            pad(
+              top: 2em,
+              for i in range(calc.ceil(authors.len() / 2)) {
+                let end = calc.min((i + 1) * 2, authors.len())
+                let is-last = authors.len() == end
+                let slice = authors.slice(i * 2, end)
+                grid(
+                  columns: slice.len() * (1fr,),
+                  gutter: 12pt,
+                  ..slice.map(author => align(center, {
+                    text(12pt, strong(author.name))
+                    if "orcid" in author [
+                      \ #author.orcid
+                    ]
+                    if "affiliation" in author [
+                      \ #author.affiliation
+                    ]
+                    // if "department" in author [
+                    //   \ #author.department
+                    // ]
+                    if "email" in author [
+                      \ #link("mailto:" + to-string(author.email))
+                    ]
+                  }))
+                )
+            
+                if not is-last {
+                  v(16pt, weak: true)
+                }
+              }
             )
           }
         } else {
