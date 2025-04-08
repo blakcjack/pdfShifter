@@ -96,6 +96,9 @@
   $if(sidebar_color)$
     sidebar_color: "$sidebar_color$",
   $endif$
+  $if(sidebar_position)$
+    sidebar_position: "$sidebar_position$",
+  $endif$
   $if(company)$
     companies: (
       name: "$company.name$",

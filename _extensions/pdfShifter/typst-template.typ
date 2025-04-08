@@ -24,7 +24,7 @@
   abstract-title: none,
   cols: 1,
   margin: (x: 1.25in, y: 1.25in),
-  paper: "us-letter",
+  paper: "a5",
   lang: "en",
   region: "ID",
   font: "linux libertine",
@@ -44,65 +44,88 @@
   toc_color: none,
   doc,
   company_logo: "logo.png",
-  sidebar_color: none
+  sidebar_color: none,
+  sidebar_position: "bottom"
 ) = {
   let sidebar_color = if sidebar_color != none {sidebar_color.replace("\#", "")} else {"14142a"}
   let toc_color = if sidebar_color != none {toc_color.replace("\#", "")} else {"black"}
   set page(
     paper: paper,
-    margin: (left: 2.4cm, right: 0.1cm, top: 2cm, bottom: 2cm),
+    margin: (left: if sidebar_position=="bottom" {1cm}else{2.4cm}, right: 1cm, top: 2cm, bottom: 1.1cm),
     numbering: "1",
     number-align: right,
-    background: place(left + top, rect(
+    background: place(if sidebar_position == "bottom" {bottom} else {left + top}, rect(
       fill: rgb(sidebar_color),
-      height: 100%,
-      width: 2.2cm,
+      height: if sidebar_position == "bottom" {1.3cm} else {100%},
+      width: if sidebar_position == "bottom" {100%} else {2.2cm},
       block(
         spacing: 20pt,
         place(
-          left + top,
-          dy: 440pt,
-          dx: -0.08cm,
-          stack(
-            // spacing: 1em,  // Adds space between image and text
-            block(width: 2cm, spacing: 0.1em)[
-              #image(company_logo.path)
-              #if companies != none {
-                  align(center)[
-                    #text(fill: black, size: 0.5em, weight: "bold")[
-                      #link(companies.url, companies.name)\
-                      #v(1.5pt)
-                      #text(size: 0.9em)[email: #link("mailto:" + to-string(companies.email), companies.email)]\
-                      #v(1.5pt)
-                      #text(size: 1em)[mobile: #companies.mobile]\
-                      #v(1.5pt)
-                      phone: #companies.phone\
-                      #v(1.5pt)
-                      insta: #link("https://www.instagram.com/" + to-string(companies.instagram), companies.instagram)\
-                      #v(1.5pt)
-                      linkedin: #link("https://www.linkedin.com/in/" + to-string(companies.linkedin), companies.linkedin)\
-                      // #for (key, value) in my_companies {
-                      //   [#key: #value ]
-                      // }
-                      // my_companies
-                      // #url.map(
-                      //   author => [
-                      //     #text(size: 0.45em, weight: "bold")[
-                      //       #author.name\
-                      //       #author.affiliation\
-                      //       #link("mailto:" + to-string(author.email), author.email)\
-                      //       #link("https://orcid.org/" + to-string(author.orcid), author.orcid)\
-                      //       #link("https://www.linkedin.com/in/" + to-string(author.linkedin), author.linkedin)
-                      //     ]
-                      //   ]
-                      // ).join("")
-                      // Suberlin Sinaga\
-                      // #text(size: 0.65em)[email: suberlinsinaga\@gmail.com]
+          if sidebar_position == "bottom" {bottom} else {left + top},
+          dy: if sidebar_position == "bottom" {25pt} else {440pt},
+          dx: if sidebar_position == "bottom" {2cm} else {-0.08cm},
+          if sidebar_position == "bottom" {
+            grid(
+              columns: (auto, auto),  // Two columns: one for image, one for company info
+              gutter: 2em,            // Space between columns
+              // First column: image
+              align(center + horizon)[
+                #image(company_logo.path, width: 1cm)
+              ],
+              // Second column: company name
+              align(left + horizon)[  // Align text vertically centered with image
+                #if companies != none {
+                  block(width: 3.2cm, spacing: 0.1em)[
+                    #text(fill: black, size: 0.8em, weight: "bold")[
+                      // #link(companies.url, companies.name)\
+                      #text(size: 0.9em)[#link("mailto:" + to-string(companies.email), "email: " + companies.email)]\
+                      #text(size: 1em)[mobile: #companies.mobile]
                     ]
                   ]
-              }
-            ]
-          )
+                }
+              ]
+            )
+          } else {
+            stack(
+              block(width: 2cm, spacing: 0.1em)[
+                #image(company_logo.path)
+                #if companies != none {
+                    align(center)[
+                      #text(fill: black, size: 0.5em, weight: "bold")[
+                        #link(companies.url, companies.name)\
+                        #v(1.5pt)
+                        #text(size: 0.9em)[email: #link("mailto:" + to-string(companies.email), companies.email)]\
+                        #v(1.5pt)
+                        #text(size: 1em)[mobile: #companies.mobile]\
+                        #v(1.5pt)
+                        phone: #companies.phone\
+                        #v(1.5pt)
+                        insta: #link("https://www.instagram.com/" + to-string(companies.instagram), companies.instagram)\
+                        #v(1.5pt)
+                        linkedin: #link("https://www.linkedin.com/in/" + to-string(companies.linkedin), companies.linkedin)\
+                        // #for (key, value) in my_companies {
+                        //   [#key: #value ]
+                        // }
+                        // my_companies
+                        // #url.map(
+                        //   author => [
+                        //     #text(size: 0.45em, weight: "bold")[
+                        //       #author.name\
+                        //       #author.affiliation\
+                        //       #link("mailto:" + to-string(author.email), author.email)\
+                        //       #link("https://orcid.org/" + to-string(author.orcid), author.orcid)\
+                        //       #link("https://www.linkedin.com/in/" + to-string(author.linkedin), author.linkedin)
+                        //     ]
+                        //   ]
+                        // ).join("")
+                        // Suberlin Sinaga\
+                        // #text(size: 0.65em)[email: suberlinsinaga\@gmail.com]
+                      ]
+                    ]
+                }
+              ]
+            )
+          }
         )
       )
     ))

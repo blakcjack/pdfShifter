@@ -33,6 +33,7 @@ company_logo:
 toc_indent: 45em
 toccolor: "#9f7699"
 sidebar_color: "#999f76"
+sidebar_position: "bottom"
 ---
 
 `#colbreak()`{=typst}
