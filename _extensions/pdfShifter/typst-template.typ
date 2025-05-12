@@ -74,8 +74,8 @@
         spacing: 20pt,
         place(
           if sidebar_position == "bottom" {bottom} else {left + top},
-          dy: if sidebar_position == "bottom" {25pt} else {440pt},
-          dx: if sidebar_position == "bottom" {2cm} else {-0.08cm},
+          dy: if sidebar_position == "bottom" {-5pt} else {440pt},
+          dx: if sidebar_position == "bottom" {-7cm} else {-0.08cm},
           if sidebar_position == "bottom" {
             grid(
               columns: (auto, auto),  // Two columns: one for image, one for company info
