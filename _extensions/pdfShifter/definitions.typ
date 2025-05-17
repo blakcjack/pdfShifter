@@ -43,7 +43,7 @@
 }
 
 #let empty(v) = {
-  if type(v) == "string" {
+  if type(v) == str {
     // two dollar signs here because we're technically inside
     // a Pandoc template :grimace:
     v.matches(regex("^\\s*$$")).at(0, default: none) != none
@@ -110,7 +110,7 @@
 // callout rendering
 // this is a figure show rule because callouts are crossreferenceable
 #show figure: it => {
-  if type(it.kind) != "string" {
+  if type(it.kind) != str {
     return it
   }
   let kind_match = it.kind.matches(regex("^quarto-callout-(.*)")).at(0, default: none)
@@ -147,7 +147,7 @@
 }
 
 // 2023-10-09: #fa-icon("fa-info") is not working, so we'll eval "#fa-info()" instead
-#let callout(body: [], title: "Callout", background_color: rgb("#dddddd"), icon: none, icon_color: black) = {
+#let callout(body: [], title: "Callout", background_color: rgb("#dddddd"), icon: none, icon_color: black, body_background_color: rgb("#FFFFFF")) = {
   block(
     breakable: false, 
     fill: background_color, 
@@ -166,7 +166,7 @@
         block(
           inset: 1pt, 
           width: 100%, 
-          block(fill: white, width: 100%, inset: 8pt, body))
+          block(fill: body_background_color, width: 100%, inset: 8pt, body))
       }
     )
 }

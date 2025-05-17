@@ -1,6 +1,6 @@
 #let to-string(content) = {
   if content.has("text") {
-    if type(content.text) == "string" {
+    if type(content.text) == str {
       content.text
     } else {
       to-string(content.text)
@@ -74,8 +74,8 @@
         spacing: 20pt,
         place(
           if sidebar_position == "bottom" {bottom} else {left + top},
-          dy: if sidebar_position == "bottom" {25pt} else {440pt},
-          dx: if sidebar_position == "bottom" {2cm} else {-0.08cm},
+          dy: if sidebar_position == "bottom" {-3pt} else {440pt},
+          dx: if sidebar_position == "bottom" {-7cm} else {-0.08cm},
           if sidebar_position == "bottom" {
             grid(
               columns: (auto, auto),  // Two columns: one for image, one for company info
@@ -87,7 +87,7 @@
               // Second column: company name
               align(left + horizon)[  // Align text vertically centered with image
                 #if companies != none {
-                  block(width: 3.2cm, spacing: 0.1em)[
+                  block(width: 7.2cm, spacing: 0.1em)[
                     #text(fill: black, size: 0.8em, weight: "bold")[
                       // #link(companies.url, companies.name)\
                       #text(size: 0.9em)[#link("mailto:" + to-string(companies.email), "email: " + companies.email)]\
@@ -135,13 +135,10 @@
   show heading: set text(fill: rgb(toc_color))
   set heading(numbering: sectionnumbering)
   show outline.entry: it => {
+    counter(page).update(0)
     link(
       it.element.location(),
-      [
-        #text(fill: rgb(toc_color))[#it.body]
-        #box(width: 1fr, text(fill: rgb(toc_color))[#it.fill])
-        #text(fill: rgb(toc_color))[#it.page]
-      ]
+      it.indented(it.prefix(), it.inner()),
     )
   }
   if enable-front-cover {
