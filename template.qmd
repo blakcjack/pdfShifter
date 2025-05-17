@@ -13,13 +13,13 @@ author:
         state: IND
         postal-code: 98109-4631
 company:
-  name: bababos
-  email: sales@bababos.com
-  url: www.bababos.com
-  instagram: bababos_idn
-  mobile: "0851 8667 8078"
-  phone: "(021) 2788 1879"
-  linkedin: bababos
+  name: TripleS
+  email: suberlinsinaga@gmail.com
+  url: https://datasaians.blogspot.com/
+  instagram: suberlin.sinaga
+  mobile: "08883234234"
+  phone: "(021) 88334 0000"
+  linkedin: suberlin-sinaga-007
 title-size: 2.5em
 format:
   pdfShifter-typst:
